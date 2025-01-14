@@ -5,6 +5,14 @@ const Header = () => {
     <div className="header">
       <h1>School Payment</h1>
       <ul className="nav-items">
+      <li>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
         <li>
           <Link
             style={{ textDecoration: "none", color: "black" }}

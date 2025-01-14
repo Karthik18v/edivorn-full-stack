@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
+
 import {
   PieChart,
   Pie,
   Cell,
   Tooltip,
   Legend,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
 } from "recharts";
 
 import axios from "axios";
@@ -65,50 +61,52 @@ const Dashboard = () => {
   return (
     <div>
       <Header />
-      <div className="card-container">
-        <div className="card">
-          <h1>Total Amount</h1>
-          <h2>{data.reduce((acc, val) => acc + val.order_amount, 0)}</h2>
-        </div>
-        <div className="card">
-          <h1>Successful Amount</h1>
-          <h2>{totalSuccess}</h2>
-        </div>
-        <div className="card">
-          <h1>PENDING Amount</h1>
-          <h2>{totalPending}</h2>
-        </div>
-        <div className="card">
-          <h1>FAILURE Amount</h1>
-          <h2>{totalFailure}</h2>
-        </div>
-      </div>
       {!loading && (
-        <div className="pie-chart">
-          <PieChart width={550} height={550}>
-            <Pie
-              data={[
-                { name: "SUCCESS", value: totalSuccess },
-                { name: "FAILURE", value: totalFailure },
-                { name: "PENDING", value: totalPending },
-              ]}
-              cx="50%"
-              cy="50%"
-              outerRadius={120}
-              fill="#8884d8"
-              dataKey="value"
-              label
-            >
-              {pieData.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
+        <div>
+          <div className="card-container">
+            <div className="card">
+              <h1>Total Amount</h1>
+              <h2>{data.reduce((acc, val) => acc + val.order_amount, 0)}</h2>
+            </div>
+            <div className="card">
+              <h1>Success Amount</h1>
+              <h2>{totalSuccess}</h2>
+            </div>
+            <div className="card">
+              <h1>PENDING Amount</h1>
+              <h2>{totalPending}</h2>
+            </div>
+            <div className="card">
+              <h1>FAILURE Amount</h1>
+              <h2>{totalFailure}</h2>
+            </div>
+          </div>
+          <div className="pie-chart">
+            <PieChart width={550} height={550}>
+              <Pie
+                data={[
+                  { name: "SUCCESS", value: totalSuccess },
+                  { name: "FAILURE", value: totalFailure },
+                  { name: "PENDING", value: totalPending },
+                ]}
+                cx="50%"
+                cy="50%"
+                outerRadius={120}
+                fill="#8884d8"
+                dataKey="value"
+                label
+              >
+                {pieData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </div>
         </div>
       )}
     </div>

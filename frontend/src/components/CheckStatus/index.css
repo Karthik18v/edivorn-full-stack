@@ -1,0 +1,62 @@
+.check-status-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 100px;
+}
+
+.main-container {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-button {
+    background-color: #4a90e2;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.payment-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+}
+
+.payment-card h2 {
+    margin-bottom: 15px;
+}
+
+.payment-card p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.back-button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}

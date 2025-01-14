@@ -14,7 +14,7 @@ const Transactions = () => {
   });
 
   const fetchTransactions = async () => {
-    const url = `https://edviron-backend-1tcd.onrender.com/api/transactions?school_id=${searchSchoolId}&gateway=${searchGateWay}&status=${searchStatus}`
+    const url = `https://edviron-backend-1tcd.onrender.com/api/transactions?school_id=${searchSchoolId}&gateway=${searchGateWay}&status=${searchStatus}`;
     console.log(url);
     const response = await axios.get(url);
     setTransactions(response.data);
@@ -37,7 +37,7 @@ const Transactions = () => {
       <div>
         <h2>Transaction Overview</h2>
         <div className="filter-container">
-          <div>
+          <div >
             <label>School Id: </label>
             <input
               type="text"
@@ -69,35 +69,37 @@ const Transactions = () => {
             </select>
           </div>
           <div className="button-container">
-            <button onClick={onClickFilter}>Clear Filter</button>
+            <button className="clear-button" onClick={onClickFilter}>Clear Filter</button>
           </div>
         </div>
-        <table className="transaction-table">
-          <thead>
-            <tr>
-              <th>Collect ID</th>
-              <th>School ID</th>
-              <th>Gateway</th>
-              <th>Order Amount</th>
-              <th>Transaction Amount</th>
-              <th>Status</th>
-              <th>Custom Order ID</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions.map((transaction, index) => (
-              <tr key={index}>
-                <td>{transaction.collect_id}</td>
-                <td>{transaction.school_id}</td>
-                <td>{transaction.gateway}</td>
-                <td>{transaction.order_amount}</td>
-                <td>{transaction.transaction_amount}</td>
-                <td>{transaction.status}</td>
-                <td>{transaction.custom_order_id}</td>
+        {transactions.length > 0 && (
+          <table className="transaction-table">
+            <thead>
+              <tr>
+                <th>Collect ID</th>
+                <th>School ID</th>
+                <th>Gateway</th>
+                <th>Order Amount</th>
+                <th>Transaction Amount</th>
+                <th>Status</th>
+                <th>Custom Order ID</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {transactions.map((transaction, index) => (
+                <tr key={index}>
+                  <td>{transaction.collect_id}</td>
+                  <td>{transaction.school_id}</td>
+                  <td>{transaction.gateway}</td>
+                  <td>{transaction.order_amount}</td>
+                  <td>{transaction.transaction_amount}</td>
+                  <td>{transaction.status}</td>
+                  <td>{transaction.custom_order_id}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

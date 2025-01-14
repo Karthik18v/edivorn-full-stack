@@ -48,3 +48,32 @@ h2 {
     display: flex;
     gap: 20px;
 }
+
+select{
+    height: 100%;
+}
+.filter-item{
+    display: flex;
+    background-color: antiquewhite;
+    width: 400px;
+    gap: 20px;
+    align-items: center;
+}
+
+label{
+    font-weight: 500;
+}
+
+.clear-button{
+    background-color: #4a90e2;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    cursor: pointer;
+}
+
+select{
+    height: 40px;
+    width: 100px;
+}
