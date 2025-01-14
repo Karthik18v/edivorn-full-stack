@@ -50,6 +50,3 @@ input:focus {
     transition: background 0.3s;
 }
 
-.login-button:hover {
-    background: #2980b9;
-}

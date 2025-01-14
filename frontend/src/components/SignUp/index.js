@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./index.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmitForm = async (event) => {
     event.preventDefault();
@@ -39,7 +39,6 @@ const SignUp = () => {
       setPassword("");
       setEmail("");
       alert(error.response.data.message);
-      
     }
   };
 
@@ -69,7 +68,15 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <button type="submit">Register</button>
+          <button type="submit" className="login-button">
+            Register
+          </button>
+          <p>
+            Already Exist Account
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </div>

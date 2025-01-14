@@ -1,15 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
 import "./index.css";
 const Header = () => {
+  const navigate = useNavigate();
+
+  const onClickLogout = () => {
+    Cookies.remove("jwtToken");
+    navigate("/login");
+  };
+
   return (
     <div className="header">
       <h1>School Payment</h1>
       <ul className="nav-items">
-      <li>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/"
-          >
+        <li>
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
             Home
           </Link>
         </li>
@@ -30,7 +36,7 @@ const Header = () => {
           </Link>
         </li>
       </ul>
-      <button className="logout-button" type="submit">
+      <button className="logout-button" type="submit" onClick={onClickLogout}>
         Logout
       </button>
     </div>

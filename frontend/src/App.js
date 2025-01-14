@@ -5,16 +5,21 @@ import Transactions from "./components/Transactions";
 import CheckStatus from "./components/CheckStatus";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<SignUp />} />
-        <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/transactions" element={<Transactions />} />
-        <Route exact path="/check-status" element={<CheckStatus />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Protected Routes Wrapper */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/check-status" element={<CheckStatus />} />
+        </Route>
       </Routes>
     </Router>
   );
