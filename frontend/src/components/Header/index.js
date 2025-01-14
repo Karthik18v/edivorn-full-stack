@@ -30,7 +30,7 @@ const Header = () => {
           </Link>
         </li>
       </ul>
-      <button className="button" type="submit">
+      <button className="logout-button" type="submit">
         Logout
       </button>
     </div>

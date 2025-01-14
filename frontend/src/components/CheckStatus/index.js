@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import at the top
 import Header from "../Header";
 import "./index.css";
 import axios from "axios";
